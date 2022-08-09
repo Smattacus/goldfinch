@@ -1,0 +1,9 @@
+{
+    "python.testing.pytestArgs": [
+        "python",
+        "-c",
+        "python/pyproject.toml"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
