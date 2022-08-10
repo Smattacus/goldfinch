@@ -13,7 +13,8 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "scipy"
+    "scipy",
+    "imageio"
 ]
 [project.urls]
 "Homepage" = "https://github.com/Smattacus/goldfinch"
