@@ -12,34 +12,72 @@ from goldfinch import Sharpener
 TEST_INPUT = "INPUT"
 TEST_OUTPUT = "OUTPUT"
 
+
 @pytest.fixture
 def input_mouse():
     src = iio.imread("python/tests/static/Vd-Orig.png")
     yield src
+
 
 @pytest.fixture
 def sharpened_mouse():
     src = iio.imread("python/tests/static/Vd-Sharp.png")
     yield src
 
+
 @pytest.fixture
 def input_basic():
-    src = np.array([
-        [1, 1, 1, 1, 1],
-        [2, 2, 2, 2, 2],
-        [2, 2, 2, 2, 2],
-        [1, 1, 1, 1, 1],
-    ], dtype=np.uint8)
+    src = np.array(
+        [
+            [
+                [1, 1, 1, 1, 1],
+                [2, 2, 2, 2, 2],
+                [2, 2, 2, 2, 2],
+                [1, 1, 1, 1, 1],
+            ],
+            [
+                [1, 1, 1, 1, 1],
+                [2, 2, 2, 2, 2],
+                [2, 2, 2, 2, 2],
+                [1, 1, 1, 1, 1],
+            ],
+            [
+                [1, 1, 1, 1, 1],
+                [2, 2, 2, 2, 2],
+                [2, 2, 2, 2, 2],
+                [1, 1, 1, 1, 1],
+            ],
+        ],
+        dtype=np.uint8,
+    )
     yield src
+
 
 @pytest.fixture
 def sharpened_basic():
-    src = np.array([
-        [2, 1, 1, 1, 2],
-        [5, 3, 3, 3, 5],
-        [5, 3, 3, 3, 5],
-        [2, 1, 1, 1, 2],
-    ], dtype=np.uint8)
+    src = np.array(
+        [
+            [
+                [2, 1, 1, 1, 2],
+                [5, 3, 3, 3, 5],
+                [5, 3, 3, 3, 5],
+                [2, 1, 1, 1, 2],
+            ],
+            [
+                [2, 1, 1, 1, 2],
+                [5, 3, 3, 3, 5],
+                [5, 3, 3, 3, 5],
+                [2, 1, 1, 1, 2],
+            ],
+            [
+                [2, 1, 1, 1, 2],
+                [5, 3, 3, 3, 5],
+                [5, 3, 3, 3, 5],
+                [2, 1, 1, 1, 2],
+            ],
+        ],
+        dtype=np.uint8,
+    )
     yield src
 
 
@@ -59,14 +97,15 @@ def test_data(
         "BASIC": {
             TEST_INPUT: input_basic,
             TEST_OUTPUT: sharpened_basic,
-        }
+        },
     }
     yield outputs[request.param]
+
 
 @pytest.mark.parametrize("test_data", ["MOUSE", "BASIC"], indirect=True)
 def test_sharpener(test_data):
     """
-        First test.
+    First test.
     """
     my_sharpener = Sharpener()
     test_sharpened_image = my_sharpener.sharpen_image(test_data[TEST_INPUT])

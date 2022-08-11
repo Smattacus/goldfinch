@@ -6,4 +6,7 @@
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": ["/workspaces/goldfinch/python"],
+    "editor.formatOnSave": true
 }
