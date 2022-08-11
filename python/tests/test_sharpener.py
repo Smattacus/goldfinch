@@ -1,28 +1,73 @@
 """
 Tests for basic image sharpening algorithm.
 """
+from pickletools import uint8
 import pytest
 
-import imageio
+import imageio.v3 as iio
 import numpy as np
 
 from goldfinch import Sharpener
 
+TEST_INPUT = "INPUT"
+TEST_OUTPUT = "OUTPUT"
 
 @pytest.fixture
-def input_image():
-    src = imageio.imread("python/tests/static/Vd-Orig.png")
+def input_mouse():
+    src = iio.imread("python/tests/static/Vd-Orig.png")
     yield src
 
 @pytest.fixture
-def sharpened_result():
-    src = imageio.imread("python/tests/static/Vd-Sharp.png")
+def sharpened_mouse():
+    src = iio.imread("python/tests/static/Vd-Sharp.png")
     yield src
 
-def test_sharpener(input_image, sharpened_result):
+@pytest.fixture
+def input_basic():
+    src = np.array([
+        [1, 1, 1, 1, 1],
+        [2, 2, 2, 2, 2],
+        [2, 2, 2, 2, 2],
+        [1, 1, 1, 1, 1],
+    ], dtype=np.uint8)
+    yield src
+
+@pytest.fixture
+def sharpened_basic():
+    src = np.array([
+        [2, 1, 1, 1, 2],
+        [5, 3, 3, 3, 5],
+        [5, 3, 3, 3, 5],
+        [2, 1, 1, 1, 2],
+    ], dtype=np.uint8)
+    yield src
+
+
+@pytest.fixture
+def test_data(
+    request,
+    input_mouse,
+    sharpened_mouse,
+    input_basic,
+    sharpened_basic,
+):
+    outputs = {
+        "MOUSE": {
+            TEST_INPUT: input_mouse,
+            TEST_OUTPUT: sharpened_mouse,
+        },
+        "BASIC": {
+            TEST_INPUT: input_basic,
+            TEST_OUTPUT: sharpened_basic,
+        }
+    }
+    yield outputs[request.param]
+
+@pytest.mark.parametrize("test_data", ["MOUSE", "BASIC"], indirect=True)
+def test_sharpener(test_data):
     """
         First test.
     """
-    my_sharpener = Sharpener([0])
-    test_sharpened_image = my_sharpener.SharpenImage(input_image)
-    assert np.all(test_sharpened_image == sharpened_result)
+    my_sharpener = Sharpener()
+    test_sharpened_image = my_sharpener.sharpen_image(test_data[TEST_INPUT])
+    assert np.all(test_sharpened_image == test_data[TEST_OUTPUT])
