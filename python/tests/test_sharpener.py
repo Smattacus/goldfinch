@@ -83,6 +83,7 @@ def test_sharpener(test_data):
     """
     my_sharpener = Sharpener()
     test_sharpened_image = my_sharpener.sharpen_image(test_data[TEST_INPUT])
-    iio.imwrite("test_output.png", test_sharpened_image)
-    iio.imwrite("test_diff.png", test_sharpened_image - test_data[TEST_OUTPUT])
+    # Uncomment for debugging.
+    # iio.imwrite("test_output.png", test_sharpened_image)
+    # iio.imwrite("test_diff.png", test_sharpened_image - test_data[TEST_OUTPUT])
     assert np.all(test_sharpened_image == test_data[TEST_OUTPUT])

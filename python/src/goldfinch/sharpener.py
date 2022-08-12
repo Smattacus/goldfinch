@@ -5,6 +5,7 @@ Project goldfinch. 2022.
 import numpy as np
 from numpy import array
 from scipy.ndimage import correlate
+from skimage import color, img_as_ubyte
 
 from .exceptions import BadInputImage
 
@@ -15,7 +16,7 @@ class Sharpener:
     the settings for sharpening an image.
     """
 
-    DEFAULT_KERNEL = np.array([[0, -1, 0], [-1, 5, -1], [0, -1, 0]], dtype=np.uint8)
+    DEFAULT_KERNEL = np.array([[0, -1, 0], [-1, 5, -1], [0, -1, 0]], dtype=float)
 
     SCIPY_SIGNAL = "corr2d"
     BRUTE = "brute_force"
@@ -45,9 +46,11 @@ class Sharpener:
             raise BadInputImage(
                 "Input image must be 3 dimensional: [X, Y, color_encoding]"
             )
+        src = color.rgb2lab(src)
         output = 0 * src
         for i in range(src.shape[-1]):
             output[:, :, i] = self._correlate(i, src, self.Kernel)
+        output = img_as_ubyte(color.lab2rgb(output))
         return output
 
     def _correlate(self, i: int, src: array, kernel: array):
