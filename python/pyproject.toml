@@ -14,7 +14,8 @@ classifiers = [
 ]
 dependencies = [
     "scipy",
-    "imageio"
+    "imageio",
+    "opencv-python"
 ]
 [project.urls]
 "Homepage" = "https://github.com/Smattacus/goldfinch"
