@@ -7,10 +7,11 @@ import pytest
 import imageio.v3 as iio
 import numpy as np
 
-from goldfinch import Sharpener
+from goldfinch import Sharpener, LabSharpener
 
 TEST_INPUT = "INPUT"
 TEST_OUTPUT = "OUTPUT"
+SHARPENER = "sharpener"
 
 
 @pytest.fixture
@@ -67,10 +68,12 @@ def test_data(
         "MOUSE": {
             TEST_INPUT: input_mouse,
             TEST_OUTPUT: sharpened_mouse,
+            SHARPENER: LabSharpener,
         },
         "BASIC": {
             TEST_INPUT: input_basic,
             TEST_OUTPUT: sharpened_basic,
+            SHARPENER: Sharpener,
         },
     }
     yield outputs[request.param]
@@ -81,7 +84,7 @@ def test_sharpener(test_data):
     """
     First test.
     """
-    my_sharpener = Sharpener()
+    my_sharpener = test_data[SHARPENER]()
     test_sharpened_image = my_sharpener.sharpen_image(test_data[TEST_INPUT])
     # Uncomment for debugging.
     # iio.imwrite("test_output.png", test_sharpened_image)

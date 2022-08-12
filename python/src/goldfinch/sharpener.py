@@ -46,11 +46,9 @@ class Sharpener:
             raise BadInputImage(
                 "Input image must be 3 dimensional: [X, Y, color_encoding]"
             )
-        src = color.rgb2lab(src)
         output = 0 * src
         for i in range(src.shape[-1]):
             output[:, :, i] = self._correlate(i, src, self.Kernel)
-        output = img_as_ubyte(color.lab2rgb(output))
         return output
 
     def _correlate(self, i: int, src: array, kernel: array):
@@ -65,3 +63,11 @@ class Sharpener:
 
     def _correlate_brute(self):
         pass
+
+
+class LabSharpener(Sharpener):
+    def sharpen_image(self, src: np.array):
+        src = color.rgb2lab(src)
+        output = super().sharpen_image(src)
+        output = img_as_ubyte(color.lab2rgb(output))
+        return output
