@@ -1,1 +1,1 @@
-from .sharpener import Sharpener
+from .sharpener import Sharpener, LabSharpener
