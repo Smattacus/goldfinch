@@ -1,7 +1,6 @@
 """
 Tests for basic image sharpening algorithm.
 """
-from pickletools import uint8
 import pytest
 
 import imageio.v3 as iio
