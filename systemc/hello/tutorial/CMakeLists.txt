@@ -11,4 +11,4 @@ link_libraries("libsystemc-ams.a")
 
 project(tutorial)
 
-add_executable(tutorial module.cpp)
+add_executable(tutorial constructor.cpp)
