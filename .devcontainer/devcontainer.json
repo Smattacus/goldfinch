@@ -30,7 +30,8 @@
 				"ms-python.vscode-pylance",
 				"bungcip.better-toml",
 				"ms-vscode.cpptools",
-				"twxs.cmake"
+				"twxs.cmake",
+				"ms-vscode.makefile-tools"
 			]
 		}
 	},
