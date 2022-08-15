@@ -1,3 +1,3 @@
 #!/bin/bash
 apt-get update
-apt-get install cmake
+apt-get install -y cmake
