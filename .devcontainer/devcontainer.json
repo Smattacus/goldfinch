@@ -22,13 +22,15 @@
 				"python.defaultInterpreterPath": "/usr/local/bin/python",
 				"python.linting.enabled": false,
 				"python.linting.pylintEnabled": false,
-				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+				"python.formatting.blackPath": "/usr/local/py-utils/bin/black"
 			},
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-python.python",
 				"ms-python.vscode-pylance",
-				"bungcip.better-toml"
+				"bungcip.better-toml",
+				"ms-vscode.cpptools",
+				"twxs.cmake"
 			]
 		}
 	},
