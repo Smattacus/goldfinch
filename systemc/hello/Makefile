@@ -4,3 +4,9 @@ SYSTEMC_LIB=libsystemc.a
 
 all:
 	g++ -I${INCLUDE_DIR} -L${LIB_DIR} -l:${SYSTEMC_LIB} hello.cpp -o Hello
+
+run:
+	./Hello
+
+clean:
+	rm Hello
