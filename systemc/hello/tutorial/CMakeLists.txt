@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.18)
+
+include_directories("/usr/local/systemc-2.3.3/include/")
+include_directories("/usr/local/systemc-ams-2.3/include/")
+
+link_directories("/usr/local/systemc-2.3.3/lib-linux64/")
+link_directories("/usr/local/systemc-ams-2.3/lib-linux64/")
+
+link_libraries("libsystemc.a")
+link_libraries("libsystemc-ams.a")
+
+project(tutorial)
+
+add_executable(tutorial constructor.cpp)

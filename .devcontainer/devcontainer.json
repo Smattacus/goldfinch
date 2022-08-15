@@ -31,7 +31,8 @@
 				"bungcip.better-toml",
 				"ms-vscode.cpptools",
 				"twxs.cmake",
-				"ms-vscode.makefile-tools"
+				"ms-vscode.makefile-tools",
+				"ms-vscode.cmake-tools"
 			]
 		}
 	},

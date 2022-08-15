@@ -1,4 +1,6 @@
+# Ignore python stuff
 *pycache*
 *pytest_cache*
-systemc-2.3.3/
-systemc-ams-2.3/
+
+# Ignore generated build folder from CMakeLists.txt
+build/
