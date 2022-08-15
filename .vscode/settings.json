@@ -7,6 +7,9 @@
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
     "python.formatting.provider": "black",
-    "python.formatting.blackArgs": ["/workspaces/goldfinch/python"],
-    "editor.formatOnSave": true
+    "python.formatting.blackArgs": [
+        "/workspaces/goldfinch/python"
+    ],
+    "editor.formatOnSave": true,
+    "cmake.sourceDirectory": "${workspaceFolder}/systemc/hello/tutorial"
 }
