@@ -11,5 +11,6 @@
         "/workspaces/goldfinch/python"
     ],
     "editor.formatOnSave": true,
-    "cmake.sourceDirectory": "${workspaceFolder}/systemc/hello/tutorial"
+    "cmake.sourceDirectory": "${workspaceFolder}/systemc/hello/tutorial",
+    "cmake.configureOnOpen": false
 }
