@@ -4,3 +4,4 @@
 
 # Ignore generated build folder from CMakeLists.txt
 build/
+*.log
