@@ -1,8 +1,6 @@
 {
     "python.testing.pytestArgs": [
-        "python",
-        "-c",
-        "python/pyproject.toml"
+        "python"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
@@ -11,6 +9,6 @@
         "/workspaces/goldfinch/python"
     ],
     "editor.formatOnSave": true,
-    "cmake.sourceDirectory": "${workspaceFolder}/systemc/hello/tutorial",
+    "cmake.sourceDirectory": "${workspaceFolder}/systemc",
     "cmake.configureOnOpen": false
 }
