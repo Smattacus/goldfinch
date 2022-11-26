@@ -1,4 +1,4 @@
 #!/bin/bash
-pip install -e \"python/[dev]\"
+pip install -e /workspaces/goldfinch/python/[dev]
 sudo apt-get update
-sudo apt-get install gdb
+sudo apt-get -y install gdb
