@@ -10,7 +10,7 @@ void sink::entry()
     PNG_Reader input_reader;
     PNG_Reader reference_image;
 
-    char ref_image_name[256] = "/workspaces/goldfinch/systemc/sharpener/Vd-Sharp_reference.png";
+    char ref_image_name[256] = "/workspaces/goldfinch/systemc/sharpener/Vd-Sharp_reference_PNG.png";
     char outfile[256] = "/workspaces/goldfinch/systemc/sharpener/sharpener_output.png";
 
     std::cout << "Loading ref image..." << endl;
