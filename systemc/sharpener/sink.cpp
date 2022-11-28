@@ -28,7 +28,7 @@ void sink::entry()
     {
         if (i_rows >= 100)
         {
-            std::cout << "Done reading image. Stopping simulation" << std::endl;
+            std::cout << "Done reading image. Sink will write it out." << std::endl;
             break;
         }
         while (!(data_ready == true))
