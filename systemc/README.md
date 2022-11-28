@@ -27,7 +27,7 @@ The flow of data, at a high level, proceeds like this:
 2. The source sends the image data into the sharpener.
 3. The sharpener reads the PNG data into its own memory and performs image sharpening.
 4. When the sharpener is done processing, it outputs the sharpened image data to the sink.
-5. When all of the data is sent to the sink, it writes the output to a file.
+5. When all of the data is sent to the sink, the sink writes the output to a file.
 
 The communication between the source <-> sharpener and sharpener <-> sink both follow a similar scheme:
 
